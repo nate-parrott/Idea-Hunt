@@ -1,0 +1,117 @@
+body {
+	max-width: 700px;
+	width: 90%;
+	margin: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	font-family: "Helvetica Neue", sans-serif;
+}
+@media screen and (max-width: 600px) {
+	body {
+		width: 94%
+	}
+}
+h1 {
+	font-weight: 200;
+	background-color: black;
+	color: white;
+	display: inline-block;
+	padding: 10px;
+}
+#description {
+	font-style: italic;
+	margin-top: 9px;
+}
+#new-board [data-label] {
+	margin-bottom: 10px;
+}
+h2, #ideas li {
+	font-size: 16px;
+	font-weight: 300;
+}
+[data-label] {
+	min-width: 6em;
+	outline: none;
+	padding: 3px;
+}
+[data-label]:empty:before {
+	content: attr(data-label);
+	opacity: 0.5;
+}
+[data-label] {
+	border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+[data-label]:focus {
+	border-bottom: 2px solid rgba(0,0,0,0.5);
+}
+#ideas {
+	padding: 0;
+	display: table;
+	border-spacing: 10px 10px;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+#ideas > li {
+	list-style-type: none;
+	display: table-row;
+}
+#ideas > li > * {
+	display: table-cell;
+}
+#ideas .text {
+	font-weight: 500;
+}
+#ideas > li > div {
+	vertical-align: middle;
+}
+#ideas .text, #ideas .author {
+	display: inline-block;
+}
+#ideas .author:not(:empty):before {
+	opacity: 0.5;
+	content: " — ";
+}
+#ideas li.posted .text {
+	display: inline;
+}
+.votes, .fake-votes {
+	display: inline-block;
+	background-color: black;
+	color: white;
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	font-weight: bold;
+	margin-right: 1em;
+	font-size: small;
+	text-align: center;
+}
+.votes:hover:before {
+	content: "+";
+}
+.votes:active {
+	background-color: #f44;
+}
+.votes:hover span {
+	display: none;
+}
+.button {
+	text-transform: uppercase;
+	background-color: #333;
+	color: white;
+	padding: 5px;
+	font-size: x-small;
+	font-weight: bold;
+	cursor: default;
+	display: inline-block;
+}
+
+#new-board {
+	padding: 10px;
+	background-color: #f4f4f4;
+	display: inline-block;
+}
+
+a:link, a:visited {
+	color: #f44;
+}

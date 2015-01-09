@@ -1,0 +1,55 @@
+<template name="layout">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		{{> yield}}
+	</body>
+</template>
+
+<template name="index">
+	  <h1>Idea Hunt</h1>
+	  <h2>Simple boards for sharing ideas.</h2>
+	  <form id='new-board'>
+		  <div contentEditable="true" data-label="What are you collecting ideas for?" id='name'></div>
+		  <div contentEditable="true" data-label="Extra information here." id='description'></div>
+		  <span class='button' id='create'>Create idea board</span>
+	  </form>
+</template>
+
+<template name="404">
+	<h1>There's nothing here</h1>
+	<p><a href='/'>Create a new idea board</a></p>
+</template>
+
+<template name="board">
+	<h1>{{ board.name }}</h1>
+	<p id='description'>{{#autolink}}{{ board.description }}{{/autolink}}</p>
+	<ul id='ideas'>
+		{{# each ideas}}
+			{{> idea}}
+		{{/ each}}
+		<li id='add'>
+				<div class='fake-votes'><span>*</span></div>
+				<div>
+					<div class='text' contentEditable="true" data-label="Your idea here"></div>
+					<div class='author' contentEditable="true" data-label="— Your name"></div>
+					<span class='button' id='create'>Add</span>
+				</div>
+		</li>
+	</ul>
+</template>
+
+<template name="idea">
+	<li class='posted'>
+		<div class='votes'><span>{{ votes }}</span></div>
+		<div>
+			<div class='text'>{{#autolink}}{{ text }}{{/autolink}}</div>
+			<div class='author'>{{ author }}</div>
+		</div>
+	</li>
+</template>
+
+<template name="loading">
+	<p><em>Loading</em></p>
+</template>
